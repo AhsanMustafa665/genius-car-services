@@ -1,0 +1,11 @@
+.service{
+    border: 2px solid lavender;
+    border-radius: 20px;
+    box-shadow: 10px 10px 5px rgb(192, 195, 197);
+    padding-bottom: 10px;
+    text-align: center;
+}
+.service-img{
+    width: 100%;
+    border-radius: 20px;
+}
