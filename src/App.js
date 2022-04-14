@@ -1,9 +1,12 @@
+import { useAuthState } from 'react-firebase-hooks/auth';
 import { Route, Routes } from 'react-router-dom';
 import './App.css';
 import About from './Pages/About/About';
+import Checkout from './Pages/Checkout/Checkout/Checkout';
 import Home from './Pages/Home/Home/Home';
 import Login from './Pages/Login/Login/Login';
 import Register from './Pages/Login/Register/Register'
+import RequireAuth from './Pages/Login/RequireAuth/RequireAuth';
 import ServiceDetail from './Pages/ServiceDetail/ServiceDetail';
 import Footer from './Pages/SharedPages/Footer/Footer';
 import Header from './Pages/SharedPages/Header/Header';
@@ -12,6 +15,7 @@ import NotFound from './Pages/SharedPages/NotFound/NotFound';
 function App() {
   return (
     <div className='bg-img'>
+      
       <Header></Header>
       <Routes>
         <Route path='/' element={<Home></Home>}></Route>
@@ -20,6 +24,11 @@ function App() {
         <Route path='/about' element={<About></About>}></Route>
         <Route path='/login' element={<Login></Login>}></Route>
         <Route path='/register' element={<Register></Register>}></Route>
+        <Route path='/checkout' element={
+          <RequireAuth>
+            <Checkout></Checkout>
+        </RequireAuth>}>
+        </Route>
         <Route path='/*' element={<NotFound></NotFound>}></Route>
         </Routes>
       <Footer></Footer>
